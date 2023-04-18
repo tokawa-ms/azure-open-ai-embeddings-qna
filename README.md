@@ -6,11 +6,16 @@ A simple web application for a OpenAI-enabled document search. This repo uses Az
 
 # Running this repo
 You have multiple options to run the code:
--   [Deploy on Azure (WebApp + Redis Stack + Batch Processing)](#deploy-on-azure-webapp--redis-stack--batch-processing)
--   [Run everything locally in Docker (WebApp + Redis Stack + Batch Processing)](#run-everything-locally-in-docker-webapp--redis-stack--batch-processing)
--   [Run everything locally in Python with Conda (WebApp only)](#run-everything-locally-in-python-with-conda-webapp-only)
--   [Run everything locally in Python with venv](#run-everything-locally-in-python-with-venv)
--   [Run WebApp locally in Docker against an existing Redis deployment](#run-webapp-locally-in-docker-against-an-existing-redis-deployment)
+- [Azure OpenAI Embeddings QnA](#azure-openai-embeddings-qna)
+- [Running this repo](#running-this-repo)
+  - [Deploy on Azure (WebApp + Redis Stack + Batch Processing)](#deploy-on-azure-webapp--redis-stack--batch-processing)
+  - [Run everything locally in Docker (WebApp + Redis Stack + Batch Processing)](#run-everything-locally-in-docker-webapp--redis-stack--batch-processing)
+  - [Run everything locally in Python with Conda (WebApp only)](#run-everything-locally-in-python-with-conda-webapp-only)
+  - [Run everything locally in Python with venv](#run-everything-locally-in-python-with-venv)
+  - [Run WebApp locally in Docker against an existing Redis deployment](#run-webapp-locally-in-docker-against-an-existing-redis-deployment)
+    - [Option 1 - Run the prebuilt Docker image](#option-1---run-the-prebuilt-docker-image)
+    - [Option 2 - Build the Docker image yourself](#option-2---build-the-docker-image-yourself)
+  - [Environment variables](#environment-variables)
 
 ## Deploy on Azure (WebApp + Redis Stack + Batch Processing)
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fruoccofabrizio%2Fazure-open-ai-embeddings-qna%2Fvideosolacc%2Finfrastructure%2Fdeployment.json)
@@ -173,10 +178,13 @@ Optional parameters for additional features (e.g. document text extraction with 
 |TRANSLATE_REGION | YOUR_TRANSLATE_REGION| OPTIONAL - Get it in the [Azure Portal](https://portal.azure.com) if you want to use translation feature|
 |VIDEO_ACCOUNT_ID | YOUR_AZURE_VI_ACCOUNT_ID |
 |VIDEO_LOCATION | YOUR_AZURE_VI_LOCATION |
-|VIDEO_ACCOUNT_NAME| YOUR_AZURE_VI_ACCOUNT_ID |
+|VIDEO_ACCOUNT_NAME| YOUR_AZURE_VI_ACCOUNT_NAME |
 |RG| YOUR_AZURE_VI_ACCOUNT_RESOURCEGROUP |
+
 Service principal section (with Contributor access to your VideoIndexer service)
-| CLIENT_ID  |
-|CLIENT_SECRET |
-|TENANT_ID|
-|SUBSCRIPTION_ID |
+| App Setting | Value | Note |
+| --- | --- | ------------- |
+|CLIENT_ID  | YOUR_SERVICE_PRINCIPAL_CLIENT_ID|
+|CLIENT_SECRET | YOUR_SERVICE_PRINCIPAL_CLIENT_SECRET|
+|TENANT_ID| YOUR_AAD_TENANT_ID|
+|SUBSCRIPTION_ID | YOUR_AZURE_SUBSCRIPTION_ID|
