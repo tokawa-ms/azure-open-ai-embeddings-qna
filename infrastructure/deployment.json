@@ -149,6 +149,54 @@
         "description": "Translator Region"
       }
     },
+    "VideoIndexerAccountId": {
+      "type": "string",
+      "metadata": {
+        "description": "Video Indexer Account Id"
+      }
+    },
+    "VideoIndexerLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "Video Indexer Location"
+      }
+    },
+    "VideoIndexerAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Video Indexer Account Name"
+      }
+    },
+    "VideoIndexerResourceGroupName" : {
+      "type": "string",
+      "metadata": {
+        "description": "Video Indexer Resource Group Name"
+      }
+    },
+    "AadAppClientId": {
+      "type": "string",
+      "metadata": {
+        "description": "Azure AD App Client Id"
+      }
+    },
+    "AadAppClientSecret":{
+      "type": "securestring",
+      "metadata": {
+        "description": "Azure AD App Client Secret"
+      }
+    },
+    "AadAppTenantId": {
+      "type": "string",
+      "metadata": {
+        "description": "Azure AD App Tenant Id"
+      }
+    },
+    "AadAppSubscriptionId": {
+      "type": "string",
+      "metadata": {
+        "description": "Azure AD App Subscription Id"
+      }
+    },
     "newGuid": {
       "type": "string",
       "defaultValue": "[newGuid()]"
@@ -491,6 +539,14 @@
         "TRANSLATE_ENDPOINT": "[parameters('TranslateEndpoint')]",
         "TRANSLATE_KEY": "[parameters('TranslateKey')]",
         "TRANSLATE_REGION": "[parameters('TranslateRegion')]",
+        "VIDEO_ACCOUNT_ID" : "[parameters('VideoIndexerAccountId')]",
+        "VIDEO_LOCATION" : "[parameters('VideoIndexerLocation')]",
+        "VIDEO_ACCOUNT_NAME" : "[parameters('VideoIndexerAccountName')]",
+        "RG" : "[parameters('VideoIndexerResourceGroupName')]",
+        "CLIENT_ID" : "[parameters('AadAppClientId')]",
+        "CLIENT_SECRET" : "[parameters('AadAppClientSecret')]",
+        "TENANT_ID" : "[parameters('AadAppTenantId')]",
+        "SUBSCRIPTION_ID" : "[parameters('AadAppSubscriptionId')]",
         "CONVERT_ADD_EMBEDDINGS_URL": "[concat('https://', parameters('FunctionName') , '.azurewebsites.net/api/BatchStartProcessing?code=', variables('ClientKey'))]"
       }
     },
